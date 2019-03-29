@@ -1,0 +1,52 @@
+#html {
+    position: relative;
+    min-height: 100% !important;
+}
+
+#body {
+    font-family:'Chewy', cursive;
+    height: 100% !important;
+    margin-bottom: 40px !important;
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 40px !important;
+    width: 100% !important;
+}
+
+#header {
+    background-image: url("../images/bubble-pic.png");
+    background-position: top center;
+    background-size: cover;
+}
+
+.text-header {
+    color: #b58854;
+    text-shadow: 3px 2px white;
+}
+
+.icon, #submitSurvey, #head-survey {
+    background-color: black;
+    color: #b58854;
+}
+
+#beer-survey-card {
+    background-image: url("../images/beer-card.jpg");
+    background-position: top;
+    background-size: cover;
+}
+
+#cocktail-survey-card {
+    background-image: url("../images/cocktail-card.jpg");
+    background-position: bottom;
+    background-size: cover;
+}
+
+#wine-survey-card {
+    background-image: url("../images/wine-card.jpg");
+    background-position: fixed;
+    background-size: cover;
+}
+
