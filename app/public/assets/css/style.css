@@ -50,3 +50,7 @@
     background-size: cover;
 }
 
+.text-category, .text-card {
+    font-size: 1.3rem;
+}
+

@@ -22,7 +22,7 @@
 
 <body id="body">
     <!-- main container -->
-    <div class="container mt-2">
+    <div class="container">
 
         <!-- jumbotron for header -->
         <div class="row">
@@ -47,8 +47,8 @@
         <div class="row mx-auto">
             <div class="col-sm-12">
                 <div class="card">
-                    <div id="head-survey" class="card-header">Survey Questions</div>
-                    <div id="beer-survey-card" class="card-body">
+                    <div id="head-survey" class="card-header text-card">Survey Questions</div>
+                    <div id="beer-survey-card" class="card-body text-card">
                         <form>
                             <div class="form-group">
                                 <label for="question1">First Question</label>
@@ -100,7 +100,7 @@
                                     <option>5</option>
                                 </select>
                             </div>               
-                            <button id="submitSurvey" type="submit" class="btn btn-lg">Submit</button>
+                            <button id="submitSurvey" type="submit" class="btn btn-lg text-card">Submit</button>
                         </form>
                     </div>
                 </div> 
@@ -110,9 +110,9 @@
 
     <!-- footer for the API links-->
     <div id="footer">
-        <div class="row text-center mt-3">
+        <div class="row text-center mx-auto">
             <div class="col-sm-12">
-                <p><a href="/api/cocktails" class="pr-2">API Cocktail Link</a> | <a href="/api/beers" class="pl-2 pr-2">API Beer Link</a> | <a href="/api/wines" class="pl-2">API Wine Link</a></p
+                <p class="mb-0 mt-4"><a href="/api/cocktails" class="pr-2">API Cocktail Link</a> | <a href="/api/beers" class="pl-2 pr-2">API Beer Link</a> | <a href="/api/wines" class="pl-2">API Wine Link</a></p
             </div> 
         </div>
     </div> 
