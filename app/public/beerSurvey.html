@@ -55,11 +55,11 @@
                                 <select class="form-control" id="question1">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden >Select an Option</option>
-                                    <option>1 - No, I am not a pussy!</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5 - Yes, I am hangover from last night...</option>
+                                    <option value="1">1 - No, I am not a pussy!</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 - Yes, I am hangover from last night...</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -67,11 +67,11 @@
                                 <select class="form-control" id="question2">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden >Select an Option</option>
-                                    <option>1 - No, I want to savor</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5 - Yes, I am just thirsty</option>
+                                    <option value="1">1 - No, I want to savor</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 - Yes, I am just thirsty</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -79,11 +79,11 @@
                                 <select class="form-control" id="question3">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden >Select an Option</option>
-                                    <option>1 - No, not really</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5 - Yes, I am "hop" for it</option>
+                                    <option value="1">1 - No, not really</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 - Yes, I am "hop" for it</option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -91,11 +91,11 @@
                                 <select class="form-control" id="question4">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden >Select an Option</option>
-                                    <option>1 - No, I want a real beer</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5 - Yes, fruits beers are real beers</option>
+                                    <option value="1">1 - No, I want a real beer</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 - Yes, fruits beers are real beers</option>
                                 </select>
                             </div> 
                             <div class="form-group">
@@ -103,14 +103,14 @@
                                 <select class="form-control" id="question5">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden >Select an Option</option>
-                                    <option>1 - No, not really</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5 - Yes, I love the "chsss" feeling</option>
+                                    <option value="1">1 - No, not really</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 - Yes, I love the "chsss" feeling</option>
                                 </select>
                             </div>               
-                            <button id="submitSurvey" type="submit" class="btn btn-lg text-card">Submit</button>
+                            <button id="submit-survey" type="submit" class="btn btn-lg text-card">Submit</button>
                         </form>
                     </div>
                 </div> 
@@ -125,7 +125,29 @@
                 <p class="mb-1 mt-4"><a href="/api/cocktails" class="pr-2">API Cocktail Link</a> | <a href="/api/beers" class="pl-2 pr-2">API Beer Link</a> | <a href="/api/wines" class="pl-2">API Wine Link</a></p
             </div> 
         </div>
-    </div> 
+    </div>
+
+
+    <!-- Javascript/jQuery to handle the survey submission to the server and results processing -->
+    <script type="text/javascript">
+    // event listener on the submit button
+    $("#submit-survey").on("click", function(event) {
+        // prevent the page to refresh
+        event.preventDefault();
+
+        // grab the values entered by the user
+        var userScore = [
+            $("#question1").val(),
+            $("#question2").val(),
+            $("#question3").val(),
+            $("#question4").val(),
+            $("#question5").val()
+        ];
+        console.log(userScore);
+    });
+
+    </script>
+
 </body>
 
 </html>
