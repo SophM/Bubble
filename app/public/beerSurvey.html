@@ -35,11 +35,11 @@
         </div>
 
         <!-- buttons to change pages -->
-        <div class="row text-center mb-3">
+        <div class="row text-center mb-4">
             <div class="col-sm-12">
-                <a class="btn btn-lg icon" href="/" role="button"><i class="fas fa-home pr-2"></i>Home</a>
-                <a class="btn btn-lg icon" href="/cocktail-survey" role="button"><i class="fas fa-cocktail pr-2"></i>Cocktail Survey</a>
-                <a class="btn btn-lg icon" href="/wine-survey" role="button"><i class="fas fa-wine-glass pr-2"></i>Wine Survey</a>
+                <a class="btn btn-lg icon mt-1" href="/" role="button"><i class="fas fa-home pr-2"></i>Home</a>
+                <a class="btn btn-lg icon mt-1" href="/cocktail-survey" role="button"><i class="fas fa-cocktail pr-2"></i>Cocktail Survey</a>
+                <a class="btn btn-lg icon mt-1" href="/wine-survey" role="button"><i class="fas fa-wine-glass pr-2"></i>Wine Survey</a>
             </div>
         </div>
 
@@ -106,6 +106,25 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="modal-result" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Best Match</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <h2 id="beer-name"></h2>
+              <img id="beer-pic" alt="picture of beer"/>
+            </div>
+            <div class="modal-footer">
+              <button id="button-modal" type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
     <!-- footer for the API links-->
     <div id="footer">
         <div class="row text-center mx-auto">
@@ -137,16 +156,17 @@
         // post request to the server to compare the user input to the database
         $.post("/api/beers", userScore, function(data) {
             // to test the response from the server
-            console.log("server's response is back!");
-            console.log(data);
+            // console.log("server's response is back!");
+            // console.log(data);
 
+            // append the name of the beer and the pic to the modal
+            $("#beer-name").text(data.name);
+            $("#beer-pic").attr("src", data.picture);
+
+            // display the modal
+            $("#modal-result").modal("toggle");
         });
     });
-
-    
-
-
-
     </script>
 
 </body>
