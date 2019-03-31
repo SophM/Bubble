@@ -27,7 +27,7 @@
     text-shadow: 3px 2px white;
 }
 
-.icon, #submit-survey, #head-survey, #button-modal {
+.icon, #submit-survey, #head-survey, #button-modal, #reset {
     background-color: black;
     color: #b58854;
 }
