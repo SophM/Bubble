@@ -48,13 +48,15 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div id="head-survey" class="card-header text-card">Survey Questions</div>
+                    <!-- "fill-out-the-form" message to display if not all the options have been answered -->
+                    <h3 class="text-danger text-center pt-3 text-validate" style="display:none">Please select an option of every question!</h3>
                     <div id="wine-survey-card" class="card-body text-card">
                         <form>
                             <div class="form-group">
                                 <label for="question1">A -- I am looking for a sweet wine</label>
-                                <select class="form-control" id="question1">
+                                <select class="form-control select-menu" id="question1">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
-                                    <option hidden >Select an Option</option>
+                                    <option hidden selected="selected">Select an Option</option>
                                     <option value="1">1 - No, not really</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -64,9 +66,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="question2">B -- I am looking for a tannic wine</label>
-                                <select class="form-control" id="question2">
+                                <select class="form-control select-menu" id="question2">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
-                                    <option hidden >Select an Option</option>
+                                    <option hidden selected="selected">Select an Option</option>
                                     <option value="1">1 - No, not really</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -76,9 +78,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="question3">C -- I am looking for a sparkling wine</label>
-                                <select class="form-control" id="question3">
+                                <select class="form-control select-menu" id="question3">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
-                                    <option hidden >Select an Option</option>
+                                    <option hidden selected="selected">Select an Option</option>
                                     <option value="1">1 - No, no bubbles for me</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -88,9 +90,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="question4">D -- I am looking for a spicy wine</label>
-                                <select class="form-control" id="question4">
+                                <select class="form-control select-menu" id="question4">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
-                                    <option hidden >Select an Option</option>
+                                    <option hidden selected="selected">Select an Option</option>
                                     <option value="1">1 - No, not really</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -100,9 +102,9 @@
                             </div> 
                             <div class="form-group">
                                 <label for="question5">E -- I am looking for a fruity wine</label>
-                                <select class="form-control" id="question5">
+                                <select class="form-control select-menu" id="question5">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
-                                    <option hidden >Select an Option</option>
+                                    <option hidden selected="selected">Select an Option</option>
                                     <option value="1">1 - No, not really</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -111,9 +113,29 @@
                                 </select>
                             </div>               
                             <button id="submit-survey" type="submit" class="btn btn-lg text-card">Submit</button>
+                            <button id="reset" type="submit" class="btn btn-lg text-card mr-2">Reset</button>
                         </form>
                     </div>
                 </div> 
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-result" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Best Match</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2 id="wine-name"></h2>
+                    <img id="wine-pic" alt="picture of wine"/>
+                </div>
+                <div class="modal-footer">
+                    <button id="button-modal" type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
@@ -130,20 +152,70 @@
 
     <!-- Javascript/jQuery to handle the survey submission to the server and results processing -->
     <script type="text/javascript">
+        // event listener on the "reset" button
+        $("#reset").on("click", function () {
+            // prevent the page to refresh
+            event.preventDefault();
+            // hide the "fill-out-the-form" message
+            $(".text-validate").attr("style", "display:none");
+            // reset the value of the different dropdown-list menus to the default 
+            $(".select-menu option").prop("selected", function() {
+                return this.defaultSelected;
+            });
+        });
+
         // event listener on the submit button
         $("#submit-survey").on("click", function(event) {
             // prevent the page to refresh
             event.preventDefault();
-    
-            // grab the values entered by the user
-            var userScore = [
-                parseInt($("#question1").val()),
-                parseInt($("#question2").val()),
-                parseInt($("#question3").val()),
-                parseInt($("#question4").val()),
-                parseInt($("#question5").val())
-            ];
-            console.log(userScore);
+
+            // validation of the form
+            function validate() {
+                var okToSubmit = true;
+                $(".select-menu").each(function() {
+                    if ($(this).val() === "Select an Option") {
+                        okToSubmit = false;
+                    }    
+                })
+                // return the value of the "okToSubmit" variable
+                return okToSubmit;
+            }
+
+            // if the user hasn't filled up the form
+            if (!validate()) {
+                // display the "fill-out-the-form" message
+                $(".text-validate").attr("style", "display:block");
+            // if the user has filled the form
+            } else {
+                // hide the "fill-out-the-form" message
+                $(".text-validate").attr("style", "display:none");
+
+                // grab the values entered by the user
+                var userScore = {
+                    score: [
+                        parseInt($("#question1").val()),
+                        parseInt($("#question2").val()),
+                        parseInt($("#question3").val()),
+                        parseInt($("#question4").val()),
+                        parseInt($("#question5").val())
+                    ]
+                };
+                console.log(userScore);
+
+                // post the request to the server to compare the user input to the wine catalog
+                $.post("/api/wines", userScore, function(data) {
+                    // to test the response from the server
+                    // console.log("server's response is back!");
+                    // console.log(data);
+
+                    // append the name of the wine and the pic to the modal
+                    $("#wine-name").text(data.name);
+                    $("#wine-pic").attr("src", data.picture);
+
+                    // display the modal
+                    $("#modal-result").modal("toggle");
+                });
+            }
         });
     
     </script>

@@ -35,7 +35,36 @@ module.exports = function(app) {
     // post request to handle the incoming survey results from the cocktail survey
     // and determine the compatibility with one of the cocktails
     app.post("/api/cocktails", function(req, res) {
+        // grab the data sent by the user on "submit" 
+        var userScore = req.body;
 
+        // initialize a few variables needed for the comparison below
+        var smallestDiff = 1000;
+        var cocktailWithSmallestDiff = {};
+
+        // for-loop to go through the cocktail catalog
+        for (var i = 0; i < cocktailData.length; i++) {
+            // initialize the "totalDiff" variable - inside the loop
+            // because needs to go back to zero for each new cocktail compared to the user score
+            var totalDiff = 0;
+            // second for-loop to go through the "score" array
+            for (var j = 0; j < userScore.score.length; j++) {
+                // compare the score of the user to the score of the cocktail "i" 
+                // question by question - get the absolute value of the difference
+                // and add it to the "totalDiff" variable
+                totalDiff += Math.abs(cocktailData[i].score[j] - userScore.score[j]);
+            }
+
+            // if the "totalDiff" value is inferior to the "smallestDiff" value
+            if (smallestDiff > totalDiff) {
+                // the "totalDiff" value becomes the "smallestDiff" value
+                smallestDiff = totalDiff;
+                // and the cocktail corresponding to this small "totalDiff" value is stored
+                cocktailWithSmallestDiff = cocktailData[i];
+            }   
+        }
+        // sent back to the user the data for the cocktail with the smallest difference
+        res.json(cocktailWithSmallestDiff);
     });
 
     // post request to handle the incoming survey results from the beer survey
@@ -78,14 +107,42 @@ module.exports = function(app) {
         // console.log(smallestDiff);
         // console.log(beerWithSmallestDiff);
 
-        // set back to the user the data for the beer with the smallest difference
+        // sent back to the user the data for the beer with the smallest difference
         res.json(beerWithSmallestDiff);
-
     });
 
     // post request to handle the incoming survey results from the wine survey
     // and determine the compatibility with one of the wines
     app.post("/api/wines", function(req, res) {
+        // grab the data sent by the user on "submit" 
+        var userScore = req.body;
 
+        // initialize a few variables needed for the comparison below
+        var smallestDiff = 1000;
+        var wineWithSmallestDiff = {};
+
+        // for-loop to go through the wine catalog
+        for (var i = 0; i < wineData.length; i++) {
+            // initialize the "totalDiff" variable - inside the loop
+            // because needs to go back to zero for each new wine compared to the user score
+            var totalDiff = 0;
+            // second for-loop to go through the "score" array
+            for (var j = 0; j < userScore.score.length; j++) {
+                // compare the score of the user to the score of the wine "i" 
+                // question by question - get the absolute value of the difference
+                // and add it to the "totalDiff" variable
+                totalDiff += Math.abs(wineData[i].score[j] - userScore.score[j]);
+            }
+
+            // if the "totalDiff" value is inferior to the "smallestDiff" value
+            if (smallestDiff > totalDiff) {
+                // the "totalDiff" value becomes the "smallestDiff" value
+                smallestDiff = totalDiff;
+                // and the wine corresponding to this small "totalDiff" value is stored
+                wineWithSmallestDiff = wineData[i];
+            }   
+        }
+        // sent back to the user the data for the wine with the smallest difference
+        res.json(wineWithSmallestDiff);
     });
 };
