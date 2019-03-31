@@ -41,6 +41,45 @@ module.exports = function(app) {
     // post request to handle the incoming survey results from the beer survey
     // and determine the compatibility with one of the beers
     app.post("/api/beers", function(req, res) {
+        // grab the data sent by the user on "submit" 
+        var userScore = req.body;
+        // little tests to confirm how to parse the data
+        // console.log(userScore.score);
+        // console.log(userScore.score.length);
+        // console.log(beerData.length);
+        // console.log(beerData[0].score);
+
+        // initialize a few variables needed for the comparison below
+        var smallestDiff = 1000;
+        var beerWithSmallestDiff = {};
+
+        // for-loop to go through the beer catalog
+        for (var i = 0; i < beerData.length; i++) {
+            // initialize the "totalDiff" variable - inside the loop
+            // because needs to go back to zero for each new beer compared to the user score
+            var totalDiff = 0;
+            // second for-loop to go through the "score" array
+            for (var j = 0; j < userScore.score.length; j++) {
+                // compare the score of the user to the score of the beer "i" 
+                // question by question - get the absolute value of the difference
+                // and add it to the "totalDiff" variable
+                totalDiff += Math.abs(beerData[i].score[j] - userScore.score[j]);
+            }
+
+            // if the "totalDiff" value is inferior to the "smallestDiff" value
+            if (smallestDiff > totalDiff) {
+                // the "totalDiff" value becomes the "smallestDiff" value
+                smallestDiff = totalDiff;
+                // and the beer corresponding to this small "totalDiff" value is stored
+                beerWithSmallestDiff = beerData[i];
+            }   
+        }
+        // to test the logic
+        // console.log(smallestDiff);
+        // console.log(beerWithSmallestDiff);
+
+        // set back to the user the data for the beer with the smallest difference
+        res.json(beerWithSmallestDiff);
 
     });
 

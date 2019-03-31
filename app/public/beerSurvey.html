@@ -63,8 +63,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="question3">B -- How bitter do you want your beer?</label>
-                                <select class="form-control" id="question3">
+                                <label for="question2">B -- How bitter do you want your beer?</label>
+                                <select class="form-control" id="question2">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden >Select an Option</option>
                                     <option value="1">1 - Not bitter at all!</option>
@@ -75,8 +75,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="question4">C -- How fruity do you want your beer?</label>
-                                <select class="form-control" id="question4">
+                                <label for="question3">C -- How fruity do you want your beer?</label>
+                                <select class="form-control" id="question3">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden >Select an Option</option>
                                     <option value="1">1 - Fruitless!</option>
@@ -87,8 +87,8 @@
                                 </select>
                             </div> 
                             <div class="form-group">
-                                <label for="question5">D -- How sour do you want your beer?</label>
-                                <select class="form-control" id="question5">
+                                <label for="question4">D -- How sour do you want your beer?</label>
+                                <select class="form-control" id="question4">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden >Select an Option</option>
                                     <option value="1">1 - No sour for me!</option>
@@ -124,15 +124,26 @@
         event.preventDefault();
 
         // grab the values entered by the user
-        var userScore = [
-            parseInt($("#question1").val()),
-            parseInt($("#question2").val()),
-            parseInt($("#question3").val()),
-            parseInt($("#question4").val()),
-            parseInt($("#question5").val())
-        ];
+        var userScore = {
+            score: [
+                parseInt($("#question1").val()),
+                parseInt($("#question2").val()),
+                parseInt($("#question3").val()),
+                parseInt($("#question4").val()),
+            ]
+        };
         console.log(userScore);
+
+        // post request to the server to compare the user input to the database
+        $.post("/api/beers", userScore, function(data) {
+            // to test the response from the server
+            console.log("server's response is back!");
+            console.log(data);
+
+        });
     });
+
+    
 
 
 
