@@ -51,7 +51,7 @@ var cocktailCatalog = [
     {
         name: "Hot Buttered Rum",
         recipe: "https://www.foodnetwork.com/recipes/rachael-ray/hot-buttered-rum-recipe-1943195",
-        picture: "https://spicysouthernkitchen.com/wp-content/uploads/Hot-Buttered-Rum-3.jpg",
+        picture: "https://www.cdkitchen.com/recipes/images/2013/11/11158-3302-mx.jpg",
         score: [
             10,
             0,
