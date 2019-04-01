@@ -13,7 +13,7 @@
 var beerCatalog = [
     {
         name: "Guiness Draught",
-        picture: "https://www.irishcentral.com/uploads/article/126375/cropped_GUINNESS.jpg?t=1528116858",
+        picture: "https://cdn2.bigcommerce.com/server5500/tpbc2s65/products/256/images/283/guinessdraught11p2oz__98782.1351005565.1280.1280.jpg?c=2",
         score: [
             3,
             3,
@@ -57,7 +57,7 @@ var beerCatalog = [
     },
     {
         name: "60 minutes IPA",
-        picture: "https://beerboard.com/uploads/brand_image/cover/113/Bottleshot_60.jpg",
+        picture: "https://cdn.shopify.com/s/files/1/0227/0581/products/Dogfish-Head-60-Minute-IPA-12OZ-BTL_large.png?v=1531726568",
         score: [
             4,
             4,
@@ -90,7 +90,7 @@ var beerCatalog = [
     },
     {
         name: "PassionFruit Sour Ale",
-        picture: "http://breakside.com/wp-content/uploads/2018/03/PFSA@2x-min.png",
+        picture: "https://res.cloudinary.com/ratebeer/image/upload/w_152,h_309,c_pad,d_beer_img_default.png,f_auto/beer_180274",
         score: [
             3,
             1,
