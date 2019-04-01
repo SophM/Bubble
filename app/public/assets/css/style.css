@@ -33,19 +33,19 @@
 }
 
 #beer-survey-card {
-    background-image: url("../images/beer-card.jpg");
+    background-image: url("../images/beer-card-opacity.jpg");
     background-position: center top;
     background-size: cover;
 }
 
 #cocktail-survey-card {
-    background-image: url("../images/cocktail-card.jpg");
+    background-image: url("../images/cocktail-card-opacity.jpg");
     background-position: center bottom;
     background-size: cover;
 }
 
 #wine-survey-card {
-    background-image: url("../images/wine-card.jpg");
+    background-image: url("../images/wine-card-opacity.jpg");
     background-position: center top;
     background-size: cover;
 }
