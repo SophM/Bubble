@@ -53,65 +53,62 @@
                     <div id="cocktail-survey-card" class="card-body text-card">
                         <form>
                             <div class="form-group">
-                                <label for="question1">A -- I am looking for a strong cocktail</label>
+                                <label for="question1">A -- What kind of liquor do you want?</label>
                                 <select class="form-control select-menu" id="question1">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden selected="selected">Select an Option</option>
-                                    <option value="1">1 - No, I just want to relax</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 - Yes, I am ready to partyyy!</option>
+                                    <option value="0">Whisky</option>
+                                    <option value="10">Rum</option>
+                                    <option value="20">Vodka</option>
+                                    <option value="30">Tequila</option>
+                                    <option value="40">Gin</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="question2">B -- I am looking for a sweet cocktail</label>
+                                <label for="question2">B -- Do you want to travel?</label>
                                 <select class="form-control select-menu" id="question2">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden selected="selected">Select an Option</option>
-                                    <option value="1">1 - No, not really</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 - Yes, "sweet" on!</option>
+                                    <option value="0">No, I feel good where I am</option>
+                                    <option value="50">Yes, take me somewhere!</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="question3">C -- I would like to travel</label>
+                                <label for="question3">C -- How spicy do you want your cocktail?</label>
                                 <select class="form-control select-menu" id="question3">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden selected="selected">Select an Option</option>
-                                    <option value="1">1 - No, I feel good where I am</option>
+                                    <option value="1">1 - Not really spciy</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-                                    <option value="5">5 - Yes, take me somewhere!</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="question4">D -- I am looking for a spicy cocktail</label>
-                                <select class="form-control select-menu" id="question4">
-                                    <!-- placeholder for dropdown list - displayed but not shown in list -->
-                                    <option hidden selected="selected">Select an Option</option>
-                                    <option value="1">1 - No, not really</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5 - Yes, I want my mouth on fire!</option>
+                                    <option value="5">5 - Spicy! I love it!</option>
                                 </select>
                             </div> 
                             <div class="form-group">
-                                <label for="question5">E -- I like fruits in my cocktail</label>
-                                <select class="form-control select-menu" id="question5">
+                                <label for="question4">D -- How sweet do you want your cocktail?</label>
+                                <select class="form-control select-menu" id="question4">
                                     <!-- placeholder for dropdown list - displayed but not shown in list -->
                                     <option hidden selected="selected">Select an Option</option>
-                                    <option value="1">1 - No, not really</option>
+                                    <option value="1">1 - Not sweet</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-                                    <option value="5">5 - Yes, I haven't eaten my quota for the day</option>
+                                    <option value="5">5 - Sweet! I love it!</option>
                                 </select>
-                            </div>               
+                            </div>  
+                            <div class="form-group">
+                                    <label for="question5">E -- How fruity do you want your cocktail?</label>
+                                    <select class="form-control select-menu" id="question5">
+                                        <!-- placeholder for dropdown list - displayed but not shown in list -->
+                                        <option hidden selected="selected">Select an Option</option>
+                                        <option value="1">1 - Not fruity</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5 - Fruity! I haven't reached my fruit quota for the day!</option>
+                                    </select>
+                                </div>              
                             <button id="submit-survey" type="submit" class="btn btn-lg text-card">Submit</button>
                             <button id="reset" type="submit" class="btn btn-lg text-card mr-2">Reset</button>
                         </form>
@@ -131,8 +128,8 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="cocktail-name"></h2>
-                    <!-- <a id="cocktail-recipe" href="#" target="_blank">Check the recipe out!</a> -->
-                    <img id="cocktail-pic" alt="picture of cocktail"/>
+                    <a id="cocktail-recipe" class="text-card" href="#" target="_blank">Check the recipe out!</a>
+                    <img id="cocktail-pic" class="mt-2" alt="picture of cocktail"/>
                 </div>
                 <div class="modal-footer">
                     <button id="button-modal" type="button" class="btn btn-lg" data-dismiss="modal">Close</button>
@@ -198,7 +195,7 @@
                         parseInt($("#question2").val()),
                         parseInt($("#question3").val()),
                         parseInt($("#question4").val()),
-                        parseInt($("#question5").val()),
+                        parseInt($("#question5").val())
                     ]
                 };
                 console.log(userScore);
@@ -211,7 +208,7 @@
 
                     // append the name of the cocktails, the recipe and the pic to the modal
                     $("#cocktail-name").text(data.name);
-                    // $("#cocktail-recipe").attr("href", data.recipe);
+                    $("#cocktail-recipe").attr("href", data.recipe);
                     $("#cocktail-pic").attr("src", data.picture);
 
                     // display the modal
