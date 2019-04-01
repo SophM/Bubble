@@ -4,7 +4,7 @@
 
 // question
 // A. 0-Whisky / 10-Rhum / 20-Vodka / 30-Tequila / 40-Gin
-// B. 0-not travel / 50-travel
+// B. 0-not travel / 10-travel
 // C. 1-not spicy / 5-spicy
 // D. 1-not sweet / 5-sweet
 // E. 1-not fruit / 5-fruit
@@ -42,7 +42,7 @@ var cocktailCatalog = [
         picture: "https://d2hlgqbx7hj7sl.cloudfront.net/detail_Skinny_Mojito_4.png?mtime=20151201224540",
         score: [
             10,
-            50,
+            10,
             1,
             3,
             2
@@ -51,7 +51,7 @@ var cocktailCatalog = [
     {
         name: "Hot Buttered Rum",
         recipe: "https://www.foodnetwork.com/recipes/rachael-ray/hot-buttered-rum-recipe-1943195",
-        picture: "https://www.cdkitchen.com/recipes/images/2013/11/11158-3302-mx.jpg",
+        picture: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fcdn-image.myrecipes.com%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2Ffield%2Fimage%2Fmizina-hot-buttered-rum.jpg%3Fitok%3DU2FpvfE6&w=450&c=sc&poi=face&q=85",
         score: [
             10,
             0,
@@ -66,7 +66,7 @@ var cocktailCatalog = [
         picture: "https://theblondcook.com/wp-content/uploads/2012/09/planters-punch-6.jpg",
         score: [
             10,
-            50,
+            10,
             1,
             5,
             5
@@ -90,7 +90,7 @@ var cocktailCatalog = [
         picture: "https://stevethebartender.com.au/wp-content/uploads/2013/06/sex-on-the-beach-cocktail.jpg",
         score: [
             20,
-            50,
+            10,
             1,
             4,
             4
@@ -102,7 +102,7 @@ var cocktailCatalog = [
         picture: "https://mmac-geckowebdevelopm1.netdna-ssl.com/images/cocktails/6868/300_450_margarita_2_2.jpg",
         score: [
             30,
-            50,
+            10,
             1,
             1,
             1
@@ -114,7 +114,7 @@ var cocktailCatalog = [
         picture: "https://mmac-geckowebdevelopm1.netdna-ssl.com/images/cocktails/6743/300_375_tequilasunrise.jpg",
         score: [
             30,
-            50,
+            10,
             1,
             4,
             4
@@ -162,7 +162,7 @@ var cocktailCatalog = [
         picture: "https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2018/10/singapore-sling.jpg?itok=H04HU8XN",
         score: [
             40,
-            50,
+            10,
             1,
             4,
             5
