@@ -1,6 +1,6 @@
 # Bubble
 
-In this project, I built Bubble, a drink-finder app. It is not always easy to name exactly what you want to drink. What is usually easier though, it is to know what you want to taste, what you like in a drink. This is when Bubble does its magic, by associating the taste you want to the name of the drink you didn't know you want! Bubble has been deployed to Heroku.
+In this project, I built Bubble - a drink-finder app. It is not always easy to name exactly what you want to drink. What is usually easier though, it is to know what you want to taste, what you like in a drink. This is when Bubble does its magic, by associating the taste you want to the name of the drink you didn't know you want! Bubble has been deployed to Heroku.
 
 [Click me to check Bubble out!](https://bubble-drink-finder.herokuapp.com/)
 
