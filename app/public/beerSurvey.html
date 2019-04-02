@@ -119,6 +119,7 @@
             </div>
             <div class="modal-body">
               <h2 id="beer-name"></h2>
+              <p id="brewery-name" class="text-card"></p>
               <img id="beer-pic" alt="picture of beer"/>
             </div>
             <div class="modal-footer">
@@ -197,6 +198,7 @@
 
                     // append the name of the beer and the pic to the modal
                     $("#beer-name").text(data.name);
+                    $("#brewery-name").text("Brewery: " + data.brewery);
                     $("#beer-pic").attr("src", data.picture);
 
                     // display the modal

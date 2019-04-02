@@ -11,7 +11,7 @@ Bubble offers three categories to choose from on its main page:
 
 Each category opens up to a specific series of questions (screenshots below). The user answers the questions and submits his/her answers. After submission, some infos related to the drink that best matches the user's answers will be displayed using a modal. Those info are:
 - for the "cocktail" category: the name, the link towards the recipe and a picture of the cocktail.
-- for the "beer" category: the name of the beer and a picture of the beer bottle/can.
+- for the "beer" category: the name of the beer, the name of the brewery and a picture of the beer bottle/can.
 - for the "wine" category: the name of the type of wine and a picture of a wine bottle as an example. 
 
 For every category, some input validation has been defined so that the user can't submit the form without selecting an option for each question.
