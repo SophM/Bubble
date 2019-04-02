@@ -5,14 +5,14 @@ In this project, I built Bubble - a drink-finder app. It is not always easy to n
 [Click me to check Bubble out!](https://bubble-drink-finder.herokuapp.com/)
 
 Bubble offers three categories to choose from on its main page:
-- cocktails
-- beers
-- wines
+- cocktail
+- beer
+- wine
 
 Each category opens up to a specific series of questions (screenshots below). The user answers the questions and submits his/her answers. After submission, some infos related to the drink that best matches the user's answers will be displayed using a modal. Those info are:
-- for the "cocktails" category: the name, the link towards the recipe and a picture of the cocktail.
-- for the "beers" category: the name of the beer and a picture of the beer bottle/can.
-- for the "wines" category: the name of the type of wine and a picture of a wine bottle as an example. 
+- for the "cocktail" category: the name, the link towards the recipe and a picture of the cocktail.
+- for the "beer" category: the name of the beer and a picture of the beer bottle/can.
+- for the "wine" category: the name of the type of wine and a picture of a wine bottle as an example. 
 
 For every category, some input validation has been defined so that the user can't submit the form without selecting an option for each question.
 
