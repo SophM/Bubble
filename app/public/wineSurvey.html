@@ -213,7 +213,12 @@
                         parseInt($("#question6").val())
                     ]
                 };
-                console.log(userScore);
+                // console.log(userScore);
+
+                // reset the values of the different dropdown-list menus to the default 
+                $(".select-menu option").prop("selected", function() {
+                    return this.defaultSelected;
+                });
 
                 // post the request to the server to compare the user input to the wine catalog
                 $.post("/api/wines", userScore, function(data) {

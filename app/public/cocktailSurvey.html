@@ -202,7 +202,12 @@
                         parseInt($("#question5").val())
                     ]
                 };
-                console.log(userScore);
+                // console.log(userScore);
+
+                // reset the values of the different dropdown-list menus to the default 
+                $(".select-menu option").prop("selected", function() {
+                    return this.defaultSelected;
+                });
 
                 // post the request to the server to compare the user input to the cocktail catalog
                 $.post("/api/cocktails", userScore, function(data) {
