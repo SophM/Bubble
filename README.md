@@ -16,7 +16,7 @@ Each category opens up to a specific series of questions (screenshots below). Th
 
 For every category, some input validation has been defined so that the user can't submit the form without selecting an option for each question.
 
-The database for each category can be accessed by clicking on the respective API links - API Cocktail Link, API Beer Link, API Wine Link - displayed at the bottom of every page. The GitHub repo link is also displayde at the bottom of every page.
+The database for each category, as well as the GitHub Repo for Bubble, can be accessed by clicking on the respective links - API Cocktail Link, API Beer Link, API Wine Link, GitHub Repo - displayed at the bottom of every page.
 
 ---
 
